@@ -50,7 +50,7 @@ ChatGPT/Codex assisted with translating the existing Assignment 4 scene order, f
 
 ## Submission
 
-Submit the repository URL: https://github.com/peihannn/f26-nyu-project-jiang-peihan
+Submit the repository URL: https://github.com/peihannnn/f26-nyu-project-jiang-peihan
 
 Do not submit the temporary Codespaces or Live Server preview URL. Canvas submission is handled by the student.
 
