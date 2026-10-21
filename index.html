@@ -1,13 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Section inventory from Assignment 4, before markup:
+Header/navigation → 1 Landing → 2 Moonlight → 3 Look Up →
+4 Family Memory → 5 Friends Memory → 6 Return & Reflection → Footer.
+These are six scenes of one story, not commercial feature sections.
+-->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Project</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- START BELOW -->
-     
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Poem Quest: a quiet journey through moonlight, imagined memories, and longing for home, inspired by Li Bai's 静夜思.">
+  <title>Poem Quest | 静夜思</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to story</a>
+
+  <!-- HEADER / NAVIGATION: links move to existing sections, with no JavaScript. -->
+  <header class="site-header">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#landing">POEM QUEST</a>
+      <details>
+        <summary>MENU</summary>
+        <ul>
+          <li><a href="#landing">Begin</a></li>
+          <li><a href="#moonlight">Moonlight</a></li>
+          <li><a href="#look-up">Look up</a></li>
+          <li><a href="#family-memory">Family memory</a></li>
+          <li><a href="#friends-memory">Friends memory</a></li>
+          <li><a href="#return-reflection">Return and reflect</a></li>
+        </ul>
+      </details>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Intended later: brief delayed CTA fade and cinematic artwork. Neither is implemented in Assignment 5. -->
+    <!-- 01 / HERO: the beginning, alone in an unfamiliar guest room. -->
+    <section id="landing" aria-labelledby="landing-title">
+      <p class="eyebrow">01 / A quiet night</p>
+      <h1 id="landing-title">Poem Quest</h1>
+      <p class="poem" lang="zh-Hans">静夜思 · 李白</p>
+      <p>Li Bai sits alone in a guest room. Moonlight enters through the window.</p>
+      <a class="primary-link" href="#moonlight">BEGIN EXPERIENCE</a>
+    </section>
+
+    <!-- 02 / MOONLIGHT: the light on the floor seems like frost. -->
+    <section id="moonlight" aria-labelledby="moonlight-title">
+      <p class="eyebrow">02 / Moonlight</p>
+      <h2 id="moonlight-title" lang="zh-Hans">月光似霜</h2>
+      <p>A pale patch of light lies beside the bed. Frost?</p>
+      <!-- Native disclosure makes exploration real without JavaScript. -->
+      <details class="story-action">
+        <summary>EXPLORE THE MOONLIGHT</summary>
+        <p>The floor is still. It is moonlight, not frost.</p>
+        <p class="poem" lang="zh-Hans">床前明月光，<br>疑是地上霜。</p>
+        <a class="primary-link" href="#look-up">FOLLOW THE LIGHT UPWARD</a>
+      </details>
+    </section>
+
+    <!-- 03 / LOOK UP: the moon connects reality with imagined memories. -->
+    <section id="look-up" aria-labelledby="look-up-title">
+      <p class="eyebrow">03 / Look up</p>
+      <h2 id="look-up-title" lang="zh-Hans">举头望月</h2>
+      <p>The light leads from the floor to the window.</p>
+      <details class="story-action">
+        <summary>RAISE YOUR GAZE</summary>
+        <p>Li Bai lifts his head toward the moon. For a moment, home feels close.</p>
+        <p class="poem" lang="zh-Hans">举头望明月。</p>
+        <!-- The moon is the narrative trigger into the imagined warm scenes. -->
+        <a class="primary-link" href="#family-memory">FOLLOW THE MOON HOME</a>
+      </details>
+    </section>
+
+    <!-- 04 / FAMILY MEMORY: warm interior, a shared table and family. -->
+    <section class="memory" id="family-memory" aria-labelledby="family-title">
+      <p class="eyebrow">04 / Family memory</p>
+      <h2 id="family-title" lang="zh-Hans">家人团聚</h2>
+      <p>A lantern above the family table. An elder pours tea; a child reaches for a bowl.</p>
+      <details class="story-action">
+        <summary>STAY AT THE TABLE</summary>
+        <p>Someone draws an empty chair closer. For a moment, there is a place for him.</p>
+      </details>
+      <p class="scene-note">Imagined memory of home; not a literal event stated in the poem.</p>
+      <a class="primary-link" href="#friends-memory">STEP INTO THE COURTYARD</a>
+    </section>
+
+    <!-- 05 / FRIENDS MEMORY: a different setting, a courtyard and poetry. -->
+    <section class="memory" id="friends-memory" aria-labelledby="friends-title">
+      <p class="eyebrow">05 / Friends memory</p>
+      <h2 id="friends-title" lang="zh-Hans">朋友相聚</h2>
+      <p>Outside, beneath a pavilion, friends pass a cup of wine and trade lines of poetry.</p>
+      <details class="story-action">
+        <summary>LISTEN A MOMENT</summary>
+        <p>A familiar voice begins a verse. He remembers how the others would finish it.</p>
+      </details>
+      <p class="scene-note">Imagined memory of home; not a literal event stated in the poem.</p>
+      <a class="primary-link" href="#return-reflection">LET THE MEMORY FADE</a>
+    </section>
+
+    <!-- 06 / RETURN & REFLECTION: return to blue, lower gaze, read and replay. -->
+    <section id="return-reflection" aria-labelledby="return-title">
+      <p class="eyebrow">06 / Return and reflection</p>
+      <h2 id="return-title" lang="zh-Hans">低头思故乡</h2>
+      <p>The voices are gone. Alone in the cold guest room again, Li Bai lowers his head toward the moonlit floor.</p>
+      <p class="poem" lang="zh-Hans">床前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。</p>
+      <a class="primary-link" href="#landing">RETURN TO THE BEGINNING</a>
+      <details class="reflection">
+        <summary>REFLECT</summary>
+        <p>What brings home to mind for you?</p>
+        <label for="home-thought">A place, a person, or a small moment</label>
+        <textarea id="home-thought" rows="3" placeholder="Write a thought for yourself…"></textarea>
+        <p class="scene-note">Your words stay in this page while it is open. They are not sent or saved.</p>
+      </details>
+    </section>
+  </main>
+
+  <!-- FOOTER: identify the poem and author. -->
+  <footer class="site-footer">
+    <p>Inspired by <cite lang="zh-Hans">静夜思</cite> by Li Bai.</p>
+    <p>Poem Quest · Peihan Jiang</p>
+  </footer>
+</body>
 </html>

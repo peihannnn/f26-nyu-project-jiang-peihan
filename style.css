@@ -1,4 +1,4 @@
-/* === RESET === */
+/* === RESET: retained from the course template === */
 *,
 *::before,
 *::after {
@@ -7,4 +7,178 @@
   box-sizing: border-box;
 }
 
-/* START BELOW */
+/* START BELOW: Assignment 4 Style Tile. Base spacing unit = 8px.
+   Assignment 5 uses normal document flow: no Flexbox, Grid, images,
+   animations or transitions. Sections remain visible in story order. */
+:root {
+  --indigo: #10182d;
+  --slate: #34465f;
+  --moon: #f5eedc;
+  --warm-ink: #4a2d22;
+  --amber: #d5a35c;
+  --space: 8px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--moon);
+  background-color: var(--indigo);
+}
+
+h1, h2, .poem {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+p {
+  max-width: 64ch;
+  margin-bottom: 16px;
+}
+
+.site-header, .site-footer {
+  padding: 24px;
+  border-bottom: 1px solid var(--slate);
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+section {
+  padding: 48px 24px;
+  border-bottom: 1px solid var(--slate);
+}
+
+.memory {
+  background-color: var(--warm-ink);
+  border-bottom-color: var(--amber);
+}
+
+.eyebrow, .scene-note, .site-footer {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.eyebrow {
+  margin-bottom: 16px;
+}
+
+.poem {
+  font-size: 28px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+
+nav a, summary, .skip-link {
+  display: inline-block;
+  min-height: 44px;
+  padding: 8px;
+}
+
+nav ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+nav li {
+  margin-bottom: 8px;
+}
+
+.primary-link {
+  display: inline-block;
+  max-width: 100%;
+  min-height: 48px;
+  padding: 16px 24px;
+  margin: 8px 0 24px;
+  color: var(--indigo);
+  background-color: var(--moon);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+summary {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+details p {
+  margin: 16px 0;
+}
+
+.reflection {
+  margin-top: 8px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--moon);
+  outline-offset: 4px;
+}
+
+.primary-link:focus-visible {
+  outline-color: var(--amber);
+}
+
+/* Solid-color contrast: moon / indigo 15.24:1; moon / warm ink 10.74:1.
+   Amber marks memory boundaries; it is not used for body text. */
+
+/* Story actions: disclosure first, discovery second, then the next scene.
+   Solid scene fields remain in normal document flow for Assignment 5. */
+.story-action {
+  max-width: 64ch;
+  margin: 24px 0;
+  padding: 16px;
+  border-left: 2px solid var(--moon);
+  background-color: var(--slate);
+}
+.memory .story-action {
+  background-color: var(--warm-ink);
+  border-left-color: var(--amber);
+}
+.story-action summary {
+  display: list-item;
+  min-height: 48px;
+  padding: 12px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.story-action[open] summary { margin-bottom: 16px; }
+.story-action .primary-link { margin-bottom: 8px; }
+label { display: block; margin: 16px 0 8px; }
+textarea {
+  display: block;
+  width: 100%;
+  max-width: 48ch;
+  min-height: 96px;
+  padding: 16px;
+  border: 1px solid var(--moon);
+  border-radius: 0;
+  background-color: var(--indigo);
+  color: var(--moon);
+  font: inherit;
+}
+textarea::placeholder { color: var(--moon); opacity: 1; }
+/* Moon / slate is 8.30:1; all narrative text uses solid fields. */
