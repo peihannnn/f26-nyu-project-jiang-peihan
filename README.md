@@ -1,85 +1,88 @@
-# Poem Quest — Assignment 5
+# Poem Quest — Assignment 6
 
 Peihan Jiang · Introduction to Coding for Learning Designers
 
-A semantic HTML foundation for an immersive experience based on Li Bai's 静夜思 (Quiet Night Thought). The content follows my Assignment 4 mockup: cool reality → warm imagined memories → cool reality.
+Poem Quest is an interactive poetry game concept inspired by Li Bai's 静夜思 (Quiet Night Thought). This repository is the course's browser-based narrative prototype; it does not determine the final game's engine or development platform.
 
-## Section inventory
+## Latest mockups
 
-Header/navigation → Landing → Moonlight → Look Up → Family Memory → Friends Memory → Return & Reflection → Footer.
+The latest design reference is the Assignment 4 six-scene Figma mockup. **Its share link still needs to be added before submission.** The narrative order and cool → warm → cool palette remain the same. The current implementation shows all scenes in normal document flow; the mockup's cinematic artwork and scene transitions are not implemented.
 
-The six story sections are all visible in normal document flow. Family and friends are imagined memories, not literal events stated in the poem.
+## Weekly update — October 26, 2026
 
-## Files
+- Converted the six existing scenes from repeated HTML into six objects in the JavaScript scenes array.
+- Added script.js and linked it at the end of index.html, after the container exists.
+- Used forEach, document.createElement, textContent, attributes, and appendChild to build all six scenes.
+- Preserved the existing menu, story order, click-to-reveal exploration, poem, memory colors, and reflection field.
+- Kept the existing Style Tile classes and CSS. No extra products, cards, or unrelated content were added.
 
-- index.html: document metadata, navigation, six commented story sections, complete poem, reflection and replay links, footer.
-- style.css: template reset plus Style Tile fonts, color variables and spacing in multiples of 8px.
-- .devcontainer/: development setup inherited from profJoey/nyu-f26-project-template.
+### Challenges and solutions
 
-## Why these HTML elements?
+Not all scenes contain the same information. The family and friends memories have no poem lines, so their poem fields are empty. Optional explore data controls the discovery panels. nextInsideExplore keeps the next link inside the moonlight and raised-gaze discoveries, while memory scenes allow readers to continue without opening their optional details.
 
-- header and nav identify the brand and navigation.
-- main contains the primary story, separate from navigation and credits.
-- section is used for each distinct scene; each has an accessible heading.
-- One h1 names the experience. Five h2 headings name the following scenes.
-- p holds prose and poetry; br preserves poetic line breaks.
-- a moves to another section, so these controls are links rather than buttons with no action.
-- details and summary provide native, keyboard-operable menu and reflection disclosure without JavaScript.
-- footer identifies the original poem and author.
+Plain-text poem data uses newline characters. white-space: pre-line preserves those line breaks without innerHTML. The reflection stays in HTML and is moved into the final generated scene with appendChild.
 
-## Style Tile applied
+### Questions and next-week goals
 
-- Noto Serif SC: headings and Chinese poetry; Inter: navigation, prose and labels.
-- Indigo #10182D: reality/background; moon white #F5EEDC: text and primary links.
-- Warm ink #4A2D22: imagined memories; amber #D5A35C: decorative memory boundaries.
-- Slate #34465F: section dividers.
-- Spacing: 8, 16, 24, 48px. Body: 16px/24px; poetry: 28px/42px.
-- Solid-color text contrast: moon/indigo 15.24:1; moon/warm ink 10.74:1.
+- Confirm with the instructor whether the course project should become the browser version of the game or a companion narrative prototype if a separate game engine is used.
+- Add the current Figma share link and keep it updated.
+- Practice changing one scene's title, explaining the array fields, and explaining the rendering loop without AI assistance.
+- Use the next assignment's requirements to decide the next visual or interaction improvement. Artwork and scene switching are future goals, not implemented features.
 
-## Preview in Codespaces
+## Data and why these fields exist
 
-Open this repository with Code → Codespaces. Right-click index.html → Open with Live Server, then open the forwarded preview. No build step or dependencies are needed for the page.
+The array contains six real scenes: guest room → moonlight on the floor → looking up at the moon → imagined family table → imagined friends in a courtyard → return and reflection. The memories are creative interpretations, not events explicitly stated in the poem.
 
-## Current assignment scope
+| Field | Purpose |
+| --- | --- |
+| id | Scene identity and destination for navigation links |
+| eyebrow | Scene number and short English label |
+| title, headingLevel, language | Accessible heading; one h1, five h2s; English or Simplified Chinese |
+| description | Existing story context for that moment |
+| memory | Applies the warm memory class; reality remains cool blue |
+| poem | Chinese text; empty when the scene has no poem |
+| poemBeforeDescription | Keeps the landing's poem credit before its description |
+| explore | Optional disclosure label and revealed story text |
+| nextId, nextLabel | Where to go next and what the link says |
+| nextInsideExplore | Whether discovering the scene also reveals the next link |
 
-This is the HTML and basic CSS stage, not the finished cinematic game. No images, media, Flexbox, Grid, animations, transitions or JavaScript are included. Separate section containers and shared classes leave the structure ready for later responsive composition. The moonlight exploration and camera/memory transitions remain future work; the current links simply move to the next scene.
+## How JavaScript builds the HTML
 
-## AI assistance disclosure
+1. getElementById finds the empty story-scenes container.
+2. scenes.forEach visits each scene once in array order. forEach fits because every scene should render; no early exit is needed.
+3. createElement creates section, heading, paragraph, details, summary, and link elements.
+4. textContent inserts story text as text, not executable HTML. IDs, lang, aria-labelledby, classes, and href preserve semantics and styling.
+5. appendChild puts each element inside its scene and each scene inside the container.
+6. The existing reflection field is moved into the last scene. A direct fragment URL scrolls to its scene after rendering.
 
-ChatGPT/Codex assisted with translating the existing Assignment 4 scene order, fonts and palette into initial HTML/CSS, explaining semantic elements, and checking the structure. The story concept and prior visual decisions come from Peihan's Poem Quest design. This disclosure does not claim independent coding or completed student review; the student should review and revise the code, be able to explain it, and follow the syllabus's Student Acknowledgement of AI Use before submitting.
+The createTextElement helper groups three repeated steps: create a tag, set its text, and optionally give it a class. It returns the element so the loop can append it.
+
+## HTML concepts reviewed
+
+- details / summary: browser-native expandable content, used for exploration and reflection.
+- aria-labelledby: points to the heading ID that names each scene for assistive technology.
+- lang="zh-Hans": marks Simplified Chinese passages; it does not translate text.
+
+## Files and preview
+
+- index.html: document metadata, header/navigation, dynamic container, reflection markup, footer, and script link.
+- script.js: six scene objects and the rendering loop.
+- style.css: existing Noto Serif SC / Inter typography, cool blue and warm memory colors, and spacing based on 8px.
+- .devcontainer/: inherited course development setup.
+
+Open the existing repository in Codespaces, then open index.html with Live Server. No build dependencies are required. JavaScript must be enabled to generate the scenes; a noscript message explains this when it is disabled.
+
+Returning to the beginning scrolls to the first scene. It does not reset disclosures or erase the reflection. Reflection text is not transmitted or persistently saved.
+
+## AI assistance and learning record
+
+ChatGPT/Codex drafted the JavaScript conversion from Peihan's existing six-scene story and helped explain arrays, heading text, textContent, and appendChild. It also assisted with this README and preserving the earlier markup and styling. The fields and rendering approach were proposed with AI assistance; this is not a claim of independently authored code or completed independent review.
+
+Before submission, Peihan should review and revise this note in her own words, confirm that the scene fields reflect her intended story, and practice explaining forEach, createElement, textContent, and appendChild. Follow the syllabus's Student Acknowledgement of AI Use.
 
 ## Submission
 
-Submit the repository URL: https://github.com/peihannnn/f26-nyu-project-jiang-peihan
+Submit the repository URL, not a Codespaces preview:
+https://github.com/peihannnn/f26-nyu-project-jiang-peihan
 
-Do not submit the temporary Codespaces or Live Server preview URL. Canvas submission is handled by the student.
-
-
-## Story revision
-The six sections are six consecutive moments in one experience:
-guest room → floor moonlight → raised gaze / moon → imagined family table →
-imagined friends in a courtyard → lowered gaze / homesickness.
-
-The moonlight and raised-gaze disclosures reveal poetry only after the reader
-explores. Family and friends have different settings and optional moments to
-linger. Links move forward through the story. The last scene restores cold blue,
-shows the complete poem, and offers reflection or a return to the beginning.
-The reflection field sends nothing and has no persistent storage. Returning to
-the beginning scrolls there; it does not reset disclosures or erase the note.
-Native disclosure controls support mouse, touch and keyboard without JavaScript.
-
-This is the Assignment 5 semantic HTML and basic CSS foundation, not the finished
-cinematic game. All six sections remain in normal document flow as required.
-Artwork, camera movement, delayed fades, swipes and scene-state/reset logic are
-intended later behavior and are not implemented here. No images, media,
-Flexbox/Grid, transitions or animations have been added.
-
-AI assisted this story revision and code checks. Peihan still needs to review
-and understand the markup, CSS and design decisions before submitting it.
-
-Source audit: one h1, six labelled story sections, balanced tags, unique IDs,
-and every fragment link resolves. Calculated solid-color text contrast:
-moon #F5EEDC on indigo #10182D = 15.24:1; on slate #34465F = 8.30:1;
-on warm ink #4A2D22 = 10.74:1. Primary links have a 48px minimum height;
-story summaries have a 48px minimum height. The browser connection was blank
-during this revision, so visual/viewport and interaction QA remains unverified.
+Canvas submission is handled by the student.
