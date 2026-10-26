@@ -4,9 +4,13 @@ Peihan Jiang · Introduction to Coding for Learning Designers
 
 Poem Quest is an interactive poetry game concept inspired by Li Bai's 静夜思 (Quiet Night Thought). This repository is the course's browser-based narrative prototype; it does not determine the final game's engine or development platform.
 
-## Latest mockups
+## Design reference and current prototype
 
-The latest design reference is the Assignment 4 six-scene Figma mockup. **Its share link still needs to be added before submission.** The narrative order and cool → warm → cool palette remain the same. The current implementation shows all scenes in normal document flow; the mockup's cinematic artwork and scene transitions are not implemented.
+[Figma — Peihan Landing Page (earlier design)](https://www.figma.com/design/nZBPglCoeBI5CTToJ25xkb/Peihan_LandingPage?node-id=0-1)
+
+This Figma file shows an earlier design. The current six-scene narrative is reflected in the HTML/JavaScript prototype in this repository. The Figma file is a visual reference and does not fully reflect the current scene structure. It will be updated, or this note revised, as the project develops.
+
+The current prototype follows guest room → moonlight → looking up → family memory → friends memory → return and reflection. It preserves the cool → warm → cool palette and shows all scenes in normal document flow. Cinematic artwork and scene transitions are not implemented.
 
 ## Weekly update — October 26, 2026
 
@@ -15,6 +19,7 @@ The latest design reference is the Assignment 4 six-scene Figma mockup. **Its sh
 - Used forEach, document.createElement, textContent, attributes, and appendChild to build all six scenes.
 - Preserved the existing menu, story order, click-to-reveal exploration, poem, memory colors, and reflection field.
 - Kept the existing Style Tile classes and CSS. No extra products, cards, or unrelated content were added.
+- Added the supplied Figma reference link and documented that the six-scene HTML/JavaScript prototype is more current than that earlier design.
 
 ### Challenges and solutions
 
@@ -25,7 +30,7 @@ Plain-text poem data uses newline characters. white-space: pre-line preserves th
 ### Questions and next-week goals
 
 - Confirm with the instructor whether the course project should become the browser version of the game or a companion narrative prototype if a separate game engine is used.
-- Add the current Figma share link and keep it updated.
+- Keep the Figma reference and the note about differences from the current prototype up to date.
 - Practice changing one scene's title, explaining the array fields, and explaining the rendering loop without AI assistance.
 - Use the next assignment's requirements to decide the next visual or interaction improvement. Artwork and scene switching are future goals, not implemented features.
 
