@@ -74,6 +74,10 @@ Open the existing repository in Codespaces, then open index.html with Live Serve
 
 Returning to the beginning scrolls to the first scene. It does not reset disclosures or erase the reflection. Reflection text is not transmitted or persistently saved.
 
+## Verification
+
+The downloaded committed source passed node --check. A Node-based DOM test double verified six scenes in order, one h1 and five h2s, heading labels, both memory classes, all generated link targets, the poem/link placement inside discoveries, the reflection placement, and direct-fragment scrolling. These checks test structure and logic, not browser layout or native disclosure interaction. Browser visual/click verification remains pending because the local preview server could not be started in this environment.
+
 ## AI assistance and learning record
 
 ChatGPT/Codex drafted the JavaScript conversion from Peihan's existing six-scene story and helped explain arrays, heading text, textContent, and appendChild. It also assisted with this README and preserving the earlier markup and styling. The fields and rendering approach were proposed with AI assistance; this is not a claim of independently authored code or completed independent review.
