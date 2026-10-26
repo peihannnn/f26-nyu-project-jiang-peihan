@@ -85,9 +85,11 @@ The downloaded committed source passed node --check. A Node-based DOM test doubl
 
 ## AI assistance and learning record
 
-ChatGPT/Codex drafted the JavaScript conversion from Peihan's existing six-scene story and helped explain arrays, heading text, textContent, and appendChild. It also assisted with this README and preserving the earlier markup and styling. The fields and rendering approach were proposed with AI assistance; this is not a claim of independently authored code or completed independent review.
+I used ChatGPT/Codex to help turn my existing six-scene Poem Quest story into a JavaScript array and rendering loop. AI helped draft the code, suggest the data fields and rendering approach, explain the syntax, check the structure, and edit this README. The story concept, scene order, and earlier visual design come from my project.
 
-Before submission, Peihan should review and revise this note in her own words, confirm that the scene fields reflect her intended story, and practice explaining forEach, createElement, textContent, and appendChild. Follow the syllabus's Student Acknowledgement of AI Use.
+I reviewed the basic rendering process with AI explanations and short practice questions. I understand that title and poem store text rather than HTML tags; textContent puts that text into an element; createElement creates an empty element; and appendChild places it inside another element. I also understand that forEach runs once for each scene, so six scenes produce six iterations. To change a scene title, I change its title field in the data.
+
+This was AI-assisted work, not code I wrote entirely on my own. My review so far focused on the basic data-to-page flow. The helper function and conditional branches are areas I am continuing to study. AI also helped phrase this acknowledgement based on our review.
 
 ## Submission
 
