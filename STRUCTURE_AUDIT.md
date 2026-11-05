@@ -4,7 +4,7 @@
 
 The project is a single-page prototype containing three main `<section>` elements: Welcome, Plan Your Visit, and Route Preview. JavaScript shows one section at a time while the hidden sections use the native `hidden` attribute. This keeps the three screens in one clear document without requiring a framework.
 
-Each screen has a meaningful heading hierarchy. The main title of each screen is an `<h1>`, while supporting labels are paragraphs or legends rather than headings used only for visual size.
+The document has one `<h1>` for the project title on the Welcome screen. The Plan Your Visit and Route Preview section titles use `<h2>`, while supporting labels are paragraphs or legends rather than headings used only for visual size.
 
 ## Semantic elements
 
@@ -37,7 +37,7 @@ The base layout is designed for a 375px mobile screen. At `900px`, a media query
 
 ## JavaScript behavior review
 
-JavaScript stores the current language, screen, and route duration in one small state object. Event listeners update that state and call the render function. The render function updates visible copy, selection states, accessible labels, route steps, and the route summary. HTML provides the structure, CSS provides the presentation, and JavaScript provides the interaction.
+JavaScript stores the current language and screen in one small state object. A separate `let selectedDuration` variable remembers the visitor's 60- or 90-minute choice for the Week 8 state interaction. Event listeners update the state and call the render function. The render function uses an `if/else` to update visible copy, selection states, accessible labels, route steps, and the route summary. HTML provides the structure, CSS provides the presentation, and JavaScript provides the interaction.
 
 ## Changes made after the audit
 
@@ -47,3 +47,5 @@ JavaScript stores the current language, screen, and route duration in one small 
 - Added comments documenting the layout plan and every CSS Grid.
 - Added responsive desktop layouts instead of keeping a phone-width column on large screens.
 - Limited the desktop planning image height so it cannot expand unexpectedly.
+- Added a page inventory and named section comments to `index.html`.
+- Corrected the heading hierarchy so the document has one `<h1>` followed by screen-level `<h2>` headings.

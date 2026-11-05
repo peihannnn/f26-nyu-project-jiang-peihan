@@ -9,8 +9,10 @@
   <title>Explore Chengde</title>
 </head>
 <body>
+  <!-- PAGE INVENTORY: Welcome screen → Plan Your Visit screen → Route Preview screen -->
   <div id="root">
     <main class="app">
+      <!-- SECTION 1: Welcome screen -->
       <section class="welcome-page" data-page="welcome">
         <div class="navy-shape navy-shape--top" aria-hidden="true"></div>
         <svg class="route-line" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true"><path d="M236 -16 C243 65 275 111 327 145 C369 173 384 217 364 268"></path></svg>
@@ -31,6 +33,7 @@
         <button class="start-button" id="start-button" type="button"><span data-copy-html="begin"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
       </section>
 
+      <!-- SECTION 2: Plan Your Visit screen -->
       <section class="plan-page" data-page="plan" hidden>
         <div class="plan-corner-shape" aria-hidden="true"></div>
         <svg class="plan-gold-line" viewBox="0 0 390 210" preserveAspectRatio="none" aria-hidden="true"><path d="M225 -12 C234 61 271 91 330 116 C362 130 383 152 398 194"></path></svg>
@@ -38,7 +41,7 @@
           <button class="back-button" type="button" data-go="welcome"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 12H4M10 5l-7 7 7 7"></path></svg></button>
           <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
         </header>
-        <div class="plan-heading"><p class="plan-eyebrow" data-copy="plan.eyebrow"></p><h1 data-copy="plan.title"></h1><p class="plan-subtitle" data-copy="plan.subtitle"></p></div>
+        <div class="plan-heading"><p class="plan-eyebrow" data-copy="plan.eyebrow"></p><h2 data-copy="plan.title"></h2><p class="plan-subtitle" data-copy="plan.subtitle"></p></div>
         <div class="plan-banner" aria-hidden="true"></div>
         <form class="plan-form" id="plan-form">
           <fieldset class="plan-fieldset duration-fieldset">
@@ -52,6 +55,7 @@
         </form>
       </section>
 
+      <!-- SECTION 3: Route Preview screen -->
       <section class="preparation-page" data-page="preparation" hidden>
         <div class="preparation-shape" aria-hidden="true"></div>
         <svg class="route-preview-line" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true"><path d="M301 -12 C292 98 342 145 396 181 M203 378 C273 421 277 514 218 577 C181 617 170 663 187 714"></path></svg>
@@ -59,7 +63,7 @@
           <button class="back-button" type="button" data-go="plan"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 12H4M10 5l-7 7 7 7"></path></svg></button>
           <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
         </header>
-        <div class="route-preview-heading"><p class="plan-eyebrow" data-copy="preparation.eyebrow"></p><h1 data-copy="preparation.title"></h1><p data-copy="preparation.description"></p></div>
+        <div class="route-preview-heading"><p class="plan-eyebrow" data-copy="preparation.eyebrow"></p><h2 data-copy="preparation.title"></h2><p data-copy="preparation.description"></p></div>
         <div class="route-photo" role="img" data-photo></div>
         <section class="route-flow" aria-labelledby="prototype-label"><p class="prototype-label" id="prototype-label" data-copy="preparation.prototype"></p><ol id="route-steps"></ol></section>
         <aside class="preference-summary" id="preference-summary">

@@ -337,7 +337,7 @@ button { font: inherit; }
   letter-spacing: .08em;
 }
 
-.plan-heading h1 {
+.plan-heading h2 {
   margin: 9px 0 0;
   font-family: Didot, 'Bodoni 72', 'Bodoni MT', Georgia, serif;
   font-size: clamp(2.9rem, 12.8vw, 4.15rem);
@@ -443,7 +443,7 @@ button { font: inherit; }
 .continue-button svg { width: 25px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.4; transition: transform 180ms ease; }
 .continue-button:hover svg { transform: translateX(3px); }
 
-.plan-page--zh .plan-heading h1,
+.plan-page--zh .plan-heading h2,
 .plan-page--zh .plan-eyebrow,
 .plan-page--zh .plan-subtitle,
 .plan-page--zh .plan-fieldset legend,
@@ -451,7 +451,7 @@ button { font: inherit; }
 .preparation-page--zh .route-preview-heading,
 .preparation-page--zh .route-flow,
 .preparation-page--zh .preference-summary { font-family: 'Songti SC', SimSun, serif; }
-.plan-page--zh .plan-heading h1 { font-size: clamp(2.5rem, 11vw, 3.6rem); letter-spacing: .01em; }
+.plan-page--zh .plan-heading h2 { font-size: clamp(2.5rem, 11vw, 3.6rem); letter-spacing: .01em; }
 
 /* Route Preview */
 .preparation-shape { top: -93px; right: -83px; width: 270px; height: 228px; }
@@ -474,7 +474,7 @@ button { font: inherit; }
   font-family: Georgia, 'Times New Roman', serif;
 }
 
-.route-preview-heading h1 {
+.route-preview-heading h2 {
   margin: 9px 0 0;
   font-family: Didot, 'Bodoni 72', 'Bodoni MT', Georgia, serif;
   font-size: clamp(2.25rem, 9.6vw, 3rem);
@@ -611,7 +611,7 @@ button { font: inherit; }
 .preference-summary dd { margin: 0; overflow: hidden; font-size: clamp(.84rem, 3.6vw, 1rem); line-height: 1.15; text-overflow: ellipsis; white-space: nowrap; }
 .preference-summary .summary-route-detail { margin: 8px 0 0; color: #59564f; font-size: .68rem; line-height: 1.25; letter-spacing: 0; text-transform: none; }
 
-.preparation-page--zh .route-preview-heading h1 { font-family: 'Songti SC', SimSun, serif; font-size: clamp(2.2rem, 9.5vw, 2.85rem); letter-spacing: .01em; }
+.preparation-page--zh .route-preview-heading h2 { font-family: 'Songti SC', SimSun, serif; font-size: clamp(2.2rem, 9.5vw, 2.85rem); letter-spacing: .01em; }
 .preparation-page--zh .prototype-label { font-family: 'Songti SC', SimSun, sans-serif; }
 .preparation-page--zh .preference-summary > p { text-transform: none; }
 
@@ -621,20 +621,20 @@ button { font: inherit; }
 }
 
 @media (max-width: 350px) {
-  .plan-heading h1 { font-size: 2.7rem; }
+  .plan-heading h2 { font-size: 2.7rem; }
   .plan-form { padding-right: 6%; padding-left: 6%; }
 }
 
 @media (max-height: 760px) {
   .plan-topbar { padding-top: 22px; }
   .plan-heading { padding-top: 11px; }
-  .plan-heading h1 { margin-top: 6px; font-size: clamp(2.55rem, 11.5vw, 3.3rem); }
+  .plan-heading h2 { margin-top: 6px; font-size: clamp(2.55rem, 11.5vw, 3.3rem); }
   .plan-banner { height: 50px; margin-top: 10px; }
   .plan-form { padding-top: 12px; }
   .duration-options button { min-height: 67px; }
   .continue-button { margin-top: 13px; }
   .route-preview-heading { padding-top: 10px; }
-  .route-preview-heading h1 { margin-top: 6px; font-size: 2.2rem; }
+  .route-preview-heading h2 { margin-top: 6px; font-size: 2.2rem; }
   .route-preview-heading > p:last-child { margin-top: 5px; }
   .route-photo { top: 195px; }
   .route-flow { top: 245px; width: 252px; height: 330px; padding-top: 35px; padding-left: 63px; }
@@ -683,9 +683,9 @@ button { font: inherit; }
   /* Planning: editorial introduction sits left while choices form a desktop panel right. */
   .plan-topbar { padding: 42px 5.5% 0; }
   .plan-heading { width: 42%; padding: clamp(74px, 10vh, 118px) 0 0 6%; }
-  .plan-heading h1 { font-size: clamp(4.8rem, 6.4vw, 6.3rem); }
+  .plan-heading h2 { font-size: clamp(4.8rem, 6.4vw, 6.3rem); }
   .plan-subtitle { margin-top: 14px; font-size: 1.55rem; }
-  .plan-page--zh .plan-heading h1 { font-size: clamp(4.2rem, 5.5vw, 5.5rem); }
+  .plan-page--zh .plan-heading h2 { font-size: clamp(4.2rem, 5.5vw, 5.5rem); }
 
   .plan-banner {
     position: absolute;
@@ -765,9 +765,9 @@ button { font: inherit; }
 
   /* Route preview: story steps anchor the left while the destination image fills the right. */
   .route-preview-heading { width: 43%; padding: clamp(66px, 9vh, 104px) 0 0 6%; }
-  .route-preview-heading h1 { font-size: clamp(4.4rem, 5.9vw, 5.9rem); }
+  .route-preview-heading h2 { font-size: clamp(4.4rem, 5.9vw, 5.9rem); }
   .route-preview-heading > p:last-child { max-width: 470px; margin-top: 16px; font-size: 1.08rem; }
-  .preparation-page--zh .route-preview-heading h1 { font-size: clamp(4rem, 5.2vw, 5.2rem); }
+  .preparation-page--zh .route-preview-heading h2 { font-size: clamp(4rem, 5.2vw, 5.2rem); }
 
   .route-photo { top: 0; right: 0; bottom: 0; left: 49%; background-position: 50% 54%; }
   .preparation-shape { top: -125px; right: -70px; width: 380px; height: 300px; }

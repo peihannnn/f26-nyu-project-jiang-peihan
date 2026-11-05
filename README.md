@@ -31,6 +31,24 @@
 
 **AI use:** I used AI to help review the assignment checklist, translate my State Plan into the required JavaScript pattern, and test edge cases. The visitor problem, route-duration interaction, content, visual direction, and final decisions are my own. I reviewed the code and can explain what the variable stores, what changes it, how the `if/else` works, and how the page is updated.
 
+## Structure Audit — November 5, 2026
+
+**Fixed today:**
+
+- Added an ordered page inventory and clear section comments to `index.html`.
+- Corrected the heading hierarchy so the document contains one `<h1>` and the later screen titles use `<h2>`.
+- Confirmed that `script.js`, `style.css`, the favicon, and the project photograph all use paths to files that exist.
+- Confirmed that the three mockup screens—Welcome, Plan Your Visit, and Route Preview—are present in the same order as the design.
+
+**Still missing (building before the layout assignment):**
+
+- [x] No required mockup sections are missing from the current prototype.
+- [x] No dead navigation links remain; screen navigation uses working buttons and existing page states.
+
+**One thing I couldn't figure out:**
+
+- I do not yet have a real location map or live walking directions. Those are future product features rather than missing structural sections in this prototype.
+
 Explore Chengde is a bilingual mobile guide prototype for Chengde Mountain Resort. It uses the course-required technologies: semantic HTML, CSS, and vanilla JavaScript.
 
 ## Project brief
