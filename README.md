@@ -94,7 +94,7 @@ The Figma file documents all three screens at both required widths and explains 
 
 ## Structure audit
 
-The complete audit is available in [STRUCTURE_AUDIT.md](./STRUCTURE_AUDIT.md). The project uses semantic sections, headings, fieldsets, legends, buttons, an ordered list, and a description list so the page structure continues to make sense without its visual styling.
+The submitted Week 7 activity is available in [ACTIVITY_7_STRUCTURE_AUDIT.md](./ACTIVITY_7_STRUCTURE_AUDIT.md), with the supporting semantic review in [STRUCTURE_AUDIT.md](./STRUCTURE_AUDIT.md). The project uses semantic sections, headings, fieldsets, legends, buttons, an ordered list, and a description list so the page structure continues to make sense without its visual styling.
 
 ## Weekly update
 
@@ -113,6 +113,7 @@ index.html   Page structure and accessible content
 style.css    Layout, typography, responsive design, and visual styling
 script.js    Language switching, navigation, selections, and DOM updates
 STRUCTURE_AUDIT.md  Semantic structure and accessibility review
+ACTIVITY_7_STRUCTURE_AUDIT.md  Week 7 inventory, audit, repairs, and triage
 images/      Project photography
 references/  Original design reference
 ```
