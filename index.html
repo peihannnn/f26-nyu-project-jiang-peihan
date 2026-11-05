@@ -1,60 +1,74 @@
-<!DOCTYPE html>
-<!-- Section inventory from Assignment 4, before markup:
-Header/navigation → 1 Landing → 2 Moonlight → 3 Look Up →
-4 Family Memory → 5 Friends Memory → 6 Return & Reflection → Footer.
-These are six scenes of one story, not commercial feature sections.
--->
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Poem Quest: a quiet journey through moonlight, imagined memories, and longing for home, inspired by Li Bai's 静夜思.">
-  <title>Poem Quest | 静夜思</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Explore Chengde, a bilingual mobile guide prototype for Chengde Mountain Resort.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <title>Explore Chengde</title>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to story</a>
+  <div id="root">
+    <main class="app">
+      <section class="welcome-page" data-page="welcome">
+        <div class="navy-shape navy-shape--top" aria-hidden="true"></div>
+        <svg class="route-line" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true"><path d="M236 -16 C243 65 275 111 327 145 C369 173 384 217 364 268"></path></svg>
+        <header class="welcome-header">
+          <div class="brand-lockup"><span data-copy="resort"></span><span class="brand-lockup__secondary" data-copy="chineseName"></span></div>
+          <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
+        </header>
+        <div class="welcome-copy">
+          <h1 data-copy-html="title"></h1>
+          <p class="welcome-copy__intro" data-copy-html="introduction"></p>
+          <span class="gold-rule" aria-hidden="true"></span>
+          <p class="welcome-copy__description" data-copy-html="description"></p>
+        </div>
+        <svg class="welcome-defs" aria-hidden="true"><defs><clipPath id="welcome-photo-clip" clipPathUnits="objectBoundingBox"><path d="M0,0.27 C0.13,0.34 0.25,0.36 0.37,0.31 C0.51,0.25 0.58,0.16 0.72,0.11 C0.83,0.07 0.92,0.055 1,0.035 L1,1 L0,1 Z"></path></clipPath></defs></svg>
+        <div class="landscape" role="img" data-photo></div>
+        <div class="navy-shape navy-shape--bottom" aria-hidden="true"></div>
+        <div class="theme-index" id="theme-index"><span class="theme-index__dot" aria-hidden="true"></span></div>
+        <button class="start-button" id="start-button" type="button"><span data-copy-html="begin"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+      </section>
 
-  <!-- HEADER / NAVIGATION: fragment links move to the generated scenes. -->
-  <header class="site-header">
-    <nav aria-label="Main navigation">
-      <a class="brand" href="#landing">POEM QUEST</a>
-      <details>
-        <summary>MENU</summary>
-        <ul>
-          <li><a href="#landing">Begin</a></li>
-          <li><a href="#moonlight">Moonlight</a></li>
-          <li><a href="#look-up">Look up</a></li>
-          <li><a href="#family-memory">Family memory</a></li>
-          <li><a href="#friends-memory">Friends memory</a></li>
-          <li><a href="#return-reflection">Return and reflect</a></li>
-        </ul>
-      </details>
-    </nav>
-  </header>
+      <section class="plan-page" data-page="plan" hidden>
+        <div class="plan-corner-shape" aria-hidden="true"></div>
+        <svg class="plan-gold-line" viewBox="0 0 390 210" preserveAspectRatio="none" aria-hidden="true"><path d="M225 -12 C234 61 271 91 330 116 C362 130 383 152 398 194"></path></svg>
+        <header class="plan-topbar">
+          <button class="back-button" type="button" data-go="welcome"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 12H4M10 5l-7 7 7 7"></path></svg></button>
+          <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
+        </header>
+        <div class="plan-heading"><p class="plan-eyebrow" data-copy="plan.eyebrow"></p><h1 data-copy="plan.title"></h1><p class="plan-subtitle" data-copy="plan.subtitle"></p></div>
+        <div class="plan-banner" aria-hidden="true"></div>
+        <form class="plan-form" id="plan-form">
+          <fieldset class="plan-fieldset duration-fieldset">
+            <legend><span>01</span><span data-copy="plan.timeQuestion"></span></legend>
+            <div class="duration-options" role="radiogroup">
+              <button type="button" role="radio" data-duration="60"><span class="duration-route-photo duration-route-photo--60" aria-hidden="true"></span><span class="duration-time"><strong>60</strong><span data-copy="plan.minute"></span></span><span class="duration-route-name" data-copy="plan.route60Name"></span><span class="duration-route-detail" data-copy="plan.route60Detail"></span></button>
+              <button type="button" role="radio" data-duration="90"><span class="duration-route-photo duration-route-photo--90" aria-hidden="true"></span><span class="duration-time"><strong>90</strong><span data-copy="plan.minute"></span></span><span class="duration-route-name" data-copy="plan.route90Name"></span><span class="duration-route-detail" data-copy="plan.route90Detail"></span></button>
+            </div>
+          </fieldset>
+          <button class="continue-button" type="submit"><span data-copy="plan.continue"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+        </form>
+      </section>
 
-  <main id="main-content">
-    <!-- Six scenes are generated from the scenes array in script.js. -->
-    <div id="story-scenes"></div>
-    <noscript><p>Please enable JavaScript to read the six-scene story.</p></noscript>
-    <!-- This existing reflection is moved into the final generated scene. -->
-    <details class="reflection" id="reflection">
-        <summary>REFLECT</summary>
-        <p>What brings home to mind for you?</p>
-        <label for="home-thought">A place, a person, or a small moment</label>
-        <textarea id="home-thought" rows="3" placeholder="Write a thought for yourself…"></textarea>
-        <p class="scene-note">Your words stay in this page while it is open. They are not sent or saved.</p>
-      </details>
-  </main>
-
-  <!-- FOOTER: identify the poem and author. -->
-  <footer class="site-footer">
-    <p>Inspired by <cite lang="zh-Hans">静夜思</cite> by Li Bai.</p>
-    <p>Poem Quest · Peihan Jiang</p>
-  </footer>
-  <script src="script.js"></script>
+      <section class="preparation-page" data-page="preparation" hidden>
+        <div class="preparation-shape" aria-hidden="true"></div>
+        <svg class="route-preview-line" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true"><path d="M301 -12 C292 98 342 145 396 181 M203 378 C273 421 277 514 218 577 C181 617 170 663 187 714"></path></svg>
+        <header class="plan-topbar">
+          <button class="back-button" type="button" data-go="plan"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 12H4M10 5l-7 7 7 7"></path></svg></button>
+          <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
+        </header>
+        <div class="route-preview-heading"><p class="plan-eyebrow" data-copy="preparation.eyebrow"></p><h1 data-copy="preparation.title"></h1><p data-copy="preparation.description"></p></div>
+        <div class="route-photo" role="img" data-photo></div>
+        <section class="route-flow" aria-labelledby="prototype-label"><p class="prototype-label" id="prototype-label" data-copy="preparation.prototype"></p><ol id="route-steps"></ol></section>
+        <aside class="preference-summary" id="preference-summary">
+          <p data-copy="preparation.preferences"></p>
+          <dl><div><dt data-copy="preparation.duration"></dt><dd id="summary-duration"></dd></div></dl>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="./script.js" defer></script>
 </body>
 </html>

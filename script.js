@@ -1,180 +1,130 @@
-// Assignment 6: the six scenes come from the existing Poem Quest story.
-// Each object stores one scene, rather than a block of HTML.
-const scenes = [
-  {
-    "id": "landing",
-    "eyebrow": "01 / A quiet night",
-    "title": "Poem Quest",
-    "headingLevel": "h1",
-    "language": "en",
-    "description": "Li Bai sits alone in a guest room. Moonlight enters through the window.",
-    "memory": false,
-    "poem": "静夜思 · 李白",
-    "poemBeforeDescription": true,
-    "explore": null,
-    "nextId": "moonlight",
-    "nextLabel": "BEGIN EXPERIENCE",
-    "nextInsideExplore": false
-  },
-  {
-    "id": "moonlight",
-    "eyebrow": "02 / Moonlight",
-    "title": "月光似霜",
-    "headingLevel": "h2",
-    "language": "zh-Hans",
-    "description": "A pale patch of light lies beside the bed. Frost?",
-    "memory": false,
-    "poem": "床前明月光，\n疑是地上霜。",
-    "poemBeforeDescription": false,
-    "explore": {
-      "label": "EXPLORE THE MOONLIGHT",
-      "reveal": "The floor is still. It is moonlight, not frost."
+const copy = {
+  en: {
+    resort: 'CHENGDE\nMOUNTAIN RESORT', chineseName: '承德避暑山庄',
+    title: 'Explore<br>Chengde', introduction: '',
+    description: 'Between mountains and waters,<br>meet history, and meet a new you.',
+    themes: ['LANDSCAPES', 'ARCHITECTURE', 'PEOPLE', 'STORIES'], begin: 'BEGIN<br>JOURNEY',
+    photoAlt: 'Historic Chengde pavilion reflected in the lake', chooseLanguage: 'Choose language', journeyThemes: 'Journey themes', beginLabel: 'Begin journey',
+    plan: {
+      eyebrow: '01  /  PLAN YOUR VISIT', title: 'Plan Your Visit', subtitle: 'Make it your own.',
+      timeQuestion: 'How much time do you have?', minute: 'min',
+      route60Name: 'Essential Highlights', route60Detail: 'Palaces, lake views, and a concise cultural walk.',
+      route90Name: 'Extended Discovery', route90Detail: 'A slower route through gardens, architecture, and stories.',
+      continue: 'Continue', back: 'Back to welcome',
     },
-    "nextId": "look-up",
-    "nextLabel": "FOLLOW THE LIGHT UPWARD",
-    "nextInsideExplore": true
-  },
-  {
-    "id": "look-up",
-    "eyebrow": "03 / Look up",
-    "title": "举头望月",
-    "headingLevel": "h2",
-    "language": "zh-Hans",
-    "description": "The light leads from the floor to the window.",
-    "memory": false,
-    "poem": "举头望明月。",
-    "poemBeforeDescription": false,
-    "explore": {
-      "label": "RAISE YOUR GAZE",
-      "reveal": "Li Bai lifts his head toward the moon. For a moment, home feels close."
+    preparation: {
+      eyebrow: '03  /  YOUR ROUTE', title: 'Your Route Preview', description: 'A clear path through Chengde, shaped around your available time.',
+      prototype: 'PROTOTYPE PREVIEW', steps: ['Based on available time', 'Balanced scenic and cultural stops', 'Connected to cultural stories'],
+      preferences: 'Your selected route', duration: 'Duration', back: 'Back to planning',
     },
-    "nextId": "family-memory",
-    "nextLabel": "FOLLOW THE MOON HOME",
-    "nextInsideExplore": true
   },
-  {
-    "id": "family-memory",
-    "eyebrow": "04 / Family memory",
-    "title": "家人团聚",
-    "headingLevel": "h2",
-    "language": "zh-Hans",
-    "description": "A lantern above the family table. An elder pours tea; a child reaches for a bowl.",
-    "memory": true,
-    "poem": "",
-    "poemBeforeDescription": false,
-    "explore": {
-      "label": "STAY AT THE TABLE",
-      "reveal": "Someone draws an empty chair closer. For a moment, there is a place for him."
+  zh: {
+    resort: '承德\n避暑山庄', chineseName: 'CHENGDE MOUNTAIN RESORT',
+    title: '探索<br>承德', introduction: '',
+    description: '于山水间遇见历史，<br>也遇见崭新的自己。', themes: ['山水', '建筑', '人物', '故事'], begin: '开启<br>旅程',
+    photoAlt: '倒映在湖水中的承德古建筑', chooseLanguage: '选择语言', journeyThemes: '旅程主题', beginLabel: '开启旅程',
+    plan: {
+      eyebrow: '01  /  规划您的游览', title: '规划您的游览', subtitle: '定制专属于您的旅程。',
+      timeQuestion: '您有多少游览时间？', minute: '分钟',
+      route60Name: '精华路线', route60Detail: '游览宫殿、湖景与主要文化景点。',
+      route90Name: '深度路线', route90Detail: '从容探索园林、建筑与历史故事。',
+      continue: '继续', back: '返回欢迎页',
     },
-    "nextId": "friends-memory",
-    "nextLabel": "STEP INTO THE COURTYARD",
-    "nextInsideExplore": false
-  },
-  {
-    "id": "friends-memory",
-    "eyebrow": "05 / Friends memory",
-    "title": "朋友相聚",
-    "headingLevel": "h2",
-    "language": "zh-Hans",
-    "description": "Outside, beneath a pavilion, friends pass a cup of wine and trade lines of poetry.",
-    "memory": true,
-    "poem": "",
-    "poemBeforeDescription": false,
-    "explore": {
-      "label": "LISTEN A MOMENT",
-      "reveal": "A familiar voice begins a verse. He remembers how the others would finish it."
+    preparation: {
+      eyebrow: '03  /  您的路线', title: '您的路线预览', description: '根据您的游览时间，清晰探索承德山水与文化。',
+      prototype: '原型预览', steps: ['根据可用时间推荐', '平衡山水与文化景点', '串联文化故事'],
+      preferences: '您选择的路线', duration: '游览时长', back: '返回规划',
     },
-    "nextId": "return-reflection",
-    "nextLabel": "LET THE MEMORY FADE",
-    "nextInsideExplore": false
   },
-  {
-    "id": "return-reflection",
-    "eyebrow": "06 / Return and reflection",
-    "title": "低头思故乡",
-    "headingLevel": "h2",
-    "language": "zh-Hans",
-    "description": "The voices are gone. Alone in the cold guest room again, Li Bai lowers his head toward the moonlit floor.",
-    "memory": false,
-    "poem": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
-    "poemBeforeDescription": false,
-    "explore": null,
-    "nextId": "landing",
-    "nextLabel": "RETURN TO THE BEGINNING",
-    "nextInsideExplore": false
-  }
-];
+};
 
-const container = document.getElementById("story-scenes");
+const state = { language: 'en', page: 'welcome', duration: 60 };
 
-// A small helper avoids repeating createElement + textContent.
-function createTextElement(tag, text, className = "") {
-  const element = document.createElement(tag);
-  element.textContent = text;
-  if (className) element.className = className;
-  return element;
+function getCopy(path) {
+  return path.split('.').reduce((value, key) => value[key], copy[state.language]);
 }
 
-// forEach visits every scene in story order, once.
-scenes.forEach(scene => {
-  const section = document.createElement("section");
-  section.id = scene.id;
-  section.setAttribute("aria-labelledby", scene.id + "-title");
-  if (scene.memory) section.className = "memory";
+function showPage(page) {
+  state.page = page;
+  document.querySelectorAll('[data-page]').forEach((section) => {
+    section.hidden = section.dataset.page !== page;
+  });
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
 
-  const eyebrow = createTextElement("p", scene.eyebrow, "eyebrow");
-  const heading = document.createElement(scene.headingLevel);
-  heading.textContent = scene.title;
-  heading.id = scene.id + "-title";
-  heading.lang = scene.language;
-  section.appendChild(eyebrow);
-  section.appendChild(heading);
+function render() {
+  const content = copy[state.language];
+  const isEnglish = state.language === 'en';
+  document.documentElement.lang = isEnglish ? 'en' : 'zh-CN';
 
-  const description = createTextElement("p", scene.description);
-  const poem = createTextElement("p", scene.poem, "poem");
-  poem.lang = "zh-Hans";
-  // Preserve line breaks in plain text without inserting HTML strings.
-  poem.style.whiteSpace = "pre-line";
-  if (scene.poemBeforeDescription) section.appendChild(poem);
-  section.appendChild(description);
+  document.querySelectorAll('[data-copy]').forEach((element) => { element.textContent = getCopy(element.dataset.copy); });
+  document.querySelectorAll('[data-copy-html]').forEach((element) => { element.innerHTML = getCopy(element.dataset.copyHtml); });
+  document.querySelectorAll('[data-photo]').forEach((element) => { element.setAttribute('aria-label', content.photoAlt); });
 
-  // Optional exploration keeps the existing click-to-reveal behavior.
-  let exploration;
-  if (scene.explore) {
-    exploration = document.createElement("details");
-    exploration.className = "story-action";
-    const summary = createTextElement("summary", scene.explore.label);
-    const reveal = createTextElement("p", scene.explore.reveal);
-    exploration.appendChild(summary);
-    exploration.appendChild(reveal);
-    section.appendChild(exploration);
-  }
+  document.querySelectorAll('.language-switcher').forEach((switcher) => { switcher.setAttribute('aria-label', content.chooseLanguage); });
+  document.querySelectorAll('[data-language]').forEach((button) => {
+    const active = button.dataset.language === state.language;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
 
-  if (scene.poem && !scene.poemBeforeDescription) {
-    if (scene.nextInsideExplore) exploration.appendChild(poem);
-    else section.appendChild(poem);
-  }
+  document.querySelector('.welcome-page').classList.toggle('welcome-page--zh', !isEnglish);
+  document.querySelector('.plan-page').classList.toggle('plan-page--zh', !isEnglish);
+  document.querySelector('.preparation-page').classList.toggle('preparation-page--zh', !isEnglish);
 
-  if (scene.memory) {
-    const note = createTextElement("p",
-      "Imagined memory of home; not a literal event stated in the poem.",
-      "scene-note");
-    section.appendChild(note);
-  }
+  const themeIndex = document.querySelector('#theme-index');
+  themeIndex.setAttribute('aria-label', content.journeyThemes);
+  themeIndex.querySelectorAll(':scope > span:not(.theme-index__dot)').forEach((item) => item.remove());
+  content.themes.forEach((theme) => {
+    const item = document.createElement('span');
+    item.textContent = theme;
+    themeIndex.append(item);
+  });
 
-  const nextLink = createTextElement("a", scene.nextLabel, "primary-link");
-  nextLink.setAttribute("href", "#" + scene.nextId);
-  // The first two discoveries reveal the next link along with the poem.
-  if (scene.nextInsideExplore) exploration.appendChild(nextLink);
-  else section.appendChild(nextLink);
+  document.querySelector('#start-button').setAttribute('aria-label', content.beginLabel);
+  document.querySelector('[data-go="welcome"]').setAttribute('aria-label', content.plan.back);
+  document.querySelector('[data-go="plan"]').setAttribute('aria-label', content.preparation.back);
+  document.querySelector('.duration-options').setAttribute('aria-label', content.plan.timeQuestion);
+  document.querySelector('#preference-summary').setAttribute('aria-label', content.preparation.preferences);
 
-  container.appendChild(section);
+  document.querySelectorAll('[data-duration]').forEach((button) => {
+    const selected = Number(button.dataset.duration) === state.duration;
+    button.classList.toggle('selected', selected);
+    button.setAttribute('aria-checked', String(selected));
+  });
+
+  const routeSteps = document.querySelector('#route-steps');
+  routeSteps.replaceChildren();
+  content.preparation.steps.forEach((step, index) => {
+    const item = document.createElement('li');
+    const number = document.createElement('span');
+    const label = document.createElement('span');
+    number.className = 'route-step-number';
+    number.setAttribute('aria-hidden', 'true');
+    number.textContent = `0${index + 1}`;
+    label.textContent = step;
+    item.append(number, label);
+    routeSteps.append(item);
+  });
+
+  document.querySelector('#summary-duration').textContent = `${state.duration} ${content.plan.minute}`;
+}
+
+document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => {
+  state.language = button.dataset.language;
+  render();
+}));
+document.querySelector('#start-button').addEventListener('click', () => showPage('plan'));
+document.querySelectorAll('[data-go]').forEach((button) => button.addEventListener('click', () => showPage(button.dataset.go)));
+document.querySelectorAll('[data-duration]').forEach((button) => button.addEventListener('click', () => {
+  state.duration = Number(button.dataset.duration);
+  render();
+}));
+document.querySelector('#plan-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  render();
+  showPage('preparation');
 });
 
-// Keep the existing reflection field inside the final scene.
-const reflection = document.getElementById("reflection");
-document.getElementById("return-reflection").appendChild(reflection);
-
-// On a direct scene URL, scroll after the target has been generated.
-const sceneTarget = document.getElementById(window.location.hash.slice(1));
-if (sceneTarget) sceneTarget.scrollIntoView();
+render();
+showPage('welcome');
