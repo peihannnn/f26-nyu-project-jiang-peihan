@@ -1,5 +1,36 @@
 # Explore Chengde
 
+**Latest mockups:** [Explore Chengde wireframes and annotated 375px/1440px mockups](https://www.figma.com/design/duDwnLtOWE1ZonyZwKeGUt)
+
+**Live site:** Not published; the course submission uses the GitHub repository.
+
+## Project Log
+
+### Week 8 — November 5, 2026
+
+**State Plan**
+
+- **User story:** As an international visitor who is unfamiliar with Chengde Mountain Resort, I want a clear English route based on how much time I have, so that I can explore the site without getting lost.
+- **What does the page remember?** The visitor's selected route duration: 60 or 90 minutes.
+- **What does it start at?** It starts at 60 minutes so the page always has a useful default route.
+- **What changes it?** Clicking either duration button changes the selected duration.
+- **What does the user see?** The selected button receives the gold selected style, and the Route Preview displays the matching duration, route name, and route description.
+- **What does the `if/else` decide?** It decides whether to show the 90-minute Extended Discovery route or the 60-minute Essential Highlights route.
+
+**What changed:** I connected the existing duration controls to one clearly named `let` state variable. I added an `if/else` that updates the route preview with different names and descriptions for the 60- and 90-minute choices.
+
+**What was hard, and what I tried:** My earlier prototype stored several values in one object, which made the assignment's single state change less obvious. I separated the selected duration into its own variable and kept language and page navigation in the existing object.
+
+**What happened when I tried to break it:** I tested the initial 60-minute state, switched between 60 and 90 minutes repeatedly, clicked the same choice more than once, changed languages, and moved backward and forward between screens. The selected style and route summary stayed consistent, and the duration never moved outside the two available choices.
+
+**What I learned or changed my mind about:** I learned that changing a JavaScript variable is separate from updating the screen. The render step has to read the state and deliberately change the text and selected styling.
+
+**Question for Joey:** For the next version, would a simple illustrated route map or more detailed stop cards be the more useful next interaction?
+
+**Next week's goal:** Add real recommended stops to each route and connect the preview to a simple map while keeping the English guidance clear.
+
+**AI use:** I used AI to help review the assignment checklist, translate my State Plan into the required JavaScript pattern, and test edge cases. The visitor problem, route-duration interaction, content, visual direction, and final decisions are my own. I reviewed the code and can explain what the variable stores, what changes it, how the `if/else` works, and how the page is updated.
+
 Explore Chengde is a bilingual mobile guide prototype for Chengde Mountain Resort. It uses the course-required technologies: semantic HTML, CSS, and vanilla JavaScript.
 
 ## Project brief
