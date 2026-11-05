@@ -15,7 +15,7 @@ const copy = {
     preparation: {
       eyebrow: '03  /  YOUR ROUTE', title: 'Your Route Preview', description: 'A clear path through Chengde, shaped around your available time.',
       prototype: 'PROTOTYPE PREVIEW', steps: ['Based on available time', 'Balanced scenic and cultural stops', 'Connected to cultural stories'],
-      preferences: 'Your selected route', duration: 'Duration', back: 'Back to planning',
+      preferences: 'Your selected route', route: 'Route', duration: 'Duration', back: 'Back to planning',
     },
   },
   zh: {
@@ -33,12 +33,17 @@ const copy = {
     preparation: {
       eyebrow: '03  /  您的路线', title: '您的路线预览', description: '根据您的游览时间，清晰探索承德山水与文化。',
       prototype: '原型预览', steps: ['根据可用时间推荐', '平衡山水与文化景点', '串联文化故事'],
-      preferences: '您选择的路线', duration: '游览时长', back: '返回规划',
+      preferences: '您选择的路线', route: '路线', duration: '游览时长', back: '返回规划',
     },
   },
 };
 
-const state = { language: 'en', page: 'welcome', duration: 60 };
+const state = { language: 'en', page: 'welcome' };
+
+// selectedDuration: visitors need the route preview to remember whether they chose 60 or 90 minutes
+let selectedDuration = 60;
+
+console.log('script.js is connected');
 
 function getCopy(path) {
   return path.split('.').reduce((value, key) => value[key], copy[state.language]);
@@ -88,7 +93,7 @@ function render() {
   document.querySelector('#preference-summary').setAttribute('aria-label', content.preparation.preferences);
 
   document.querySelectorAll('[data-duration]').forEach((button) => {
-    const selected = Number(button.dataset.duration) === state.duration;
+    const selected = Number(button.dataset.duration) === selectedDuration;
     button.classList.toggle('selected', selected);
     button.setAttribute('aria-checked', String(selected));
   });
@@ -107,7 +112,20 @@ function render() {
     routeSteps.append(item);
   });
 
-  document.querySelector('#summary-duration').textContent = `${state.duration} ${content.plan.minute}`;
+  let routeName;
+  let routeDetail;
+
+  if (selectedDuration === 90) {
+    routeName = content.plan.route90Name;
+    routeDetail = content.plan.route90Detail;
+  } else {
+    routeName = content.plan.route60Name;
+    routeDetail = content.plan.route60Detail;
+  }
+
+  document.querySelector('#summary-route-name').textContent = routeName;
+  document.querySelector('#summary-duration').textContent = `${selectedDuration} ${content.plan.minute}`;
+  document.querySelector('#summary-route-detail').textContent = routeDetail;
 }
 
 document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => {
@@ -117,7 +135,8 @@ document.querySelectorAll('[data-language]').forEach((button) => button.addEvent
 document.querySelector('#start-button').addEventListener('click', () => showPage('plan'));
 document.querySelectorAll('[data-go]').forEach((button) => button.addEventListener('click', () => showPage(button.dataset.go)));
 document.querySelectorAll('[data-duration]').forEach((button) => button.addEventListener('click', () => {
-  state.duration = Number(button.dataset.duration);
+  selectedDuration = Number(button.dataset.duration);
+  console.log('selectedDuration:', selectedDuration);
   render();
 }));
 document.querySelector('#plan-form').addEventListener('submit', (event) => {

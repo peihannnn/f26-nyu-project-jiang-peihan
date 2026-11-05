@@ -604,10 +604,12 @@ button { font: inherit; }
   text-transform: uppercase;
 }
 
-.preference-summary dl { margin: 0; }
+/* Grid keeps the selected route name and duration aligned inside the summary card. */
+.preference-summary dl { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(72px, .7fr); gap: 10px; margin: 0; }
 .preference-summary dl div { min-width: 0; }
 .preference-summary dt { margin-bottom: 3px; color: #6a675f; font-size: .7rem; }
 .preference-summary dd { margin: 0; overflow: hidden; font-size: clamp(.84rem, 3.6vw, 1rem); line-height: 1.15; text-overflow: ellipsis; white-space: nowrap; }
+.preference-summary .summary-route-detail { margin: 8px 0 0; color: #59564f; font-size: .68rem; line-height: 1.25; letter-spacing: 0; text-transform: none; }
 
 .preparation-page--zh .route-preview-heading h1 { font-family: 'Songti SC', SimSun, serif; font-size: clamp(2.2rem, 9.5vw, 2.85rem); letter-spacing: .01em; }
 .preparation-page--zh .prototype-label { font-family: 'Songti SC', SimSun, sans-serif; }
@@ -807,6 +809,7 @@ button { font: inherit; }
   .preference-summary > p { margin-bottom: 15px; }
   .preference-summary dt { font-size: .78rem; }
   .preference-summary dd { font-size: 1.08rem; }
+  .preference-summary .summary-route-detail { margin-top: 12px; font-size: .78rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
