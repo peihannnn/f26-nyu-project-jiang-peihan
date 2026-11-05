@@ -49,6 +49,10 @@
 
 - I do not yet have a real location map or live walking directions. Those are future product features rather than missing structural sections in this prototype.
 
+**Partner spot-check:**
+
+- A classmate confirmed that the three required screens were present and suggested developing an **individualized route**. This idea supports the current 60- and 90-minute choices and provides a direction for future routes based on real stops and visitor needs.
+
 Explore Chengde is a bilingual mobile guide prototype for Chengde Mountain Resort. It uses the course-required technologies: semantic HTML, CSS, and vanilla JavaScript.
 
 ## Project brief

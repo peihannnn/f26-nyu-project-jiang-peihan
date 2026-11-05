@@ -45,7 +45,7 @@ This inventory is also written as a comment near the top of `index.html`. Each s
 
 - [ ] Replace the prototype route steps with real named locations and verified walking directions.
 - [ ] Add a simple illustrated or geographic map after the route content is researched.
-- [ ] Complete an in-person partner spot-check with a classmate when possible.
+- [ ] Develop the partner's idea of an individualized route beyond duration, using real stops and visitor needs in a future version.
 
 **One thing I couldn't figure out:**
 
@@ -53,8 +53,8 @@ This inventory is also written as a comment near the top of `index.html`. Each s
 
 ## Phase 4 — Spot-check
 
-I completed a second independent comparison between the 1440px mockup and the browser build. I did not find a required screen missing from the coded page. Because this audit was completed outside the original in-class pairing time, an in-person classmate spot-check is still recorded in the checklist instead of being claimed as complete.
+A classmate completed the partner spot-check. They did not identify a required screen from the mockup that was missing from the coded page. Their main feedback was the idea of an **individualized route**: the guide should respond to what a visitor needs instead of presenting the same route to everyone. This feedback helped support the current 60- and 90-minute route choices. In a future version, the individualized route could also consider real destinations, walking distance, accessibility, and the visitor's interests.
 
 ## Result
 
-All three required screens are present and usable. The page now has an explicit inventory, clear section comments, a correct heading hierarchy, working assets and controls, and no console errors in the tested Welcome → Plan → Route flow.
+All three required screens are present and usable. The page now has an explicit inventory, clear section comments, a correct heading hierarchy, working assets and controls, and no console errors in the tested Welcome → Plan → Route flow. The partner feedback also gave the project a clear direction for developing more individualized route recommendations.
