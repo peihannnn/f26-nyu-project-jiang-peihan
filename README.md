@@ -6,6 +6,33 @@
 
 ## Project Log
 
+### Week 9 — November 12, 2026
+
+**Render Plan**
+
+- **User story:** As an international visitor who is unfamiliar with Chengde Mountain Resort, I want a clear English route based on how much time I have, so that I can explore the site without getting lost.
+- **State:** The page remembers the selected visit length in `selectedDuration`; it starts at 120 minutes (2 hours).
+- **What changes it:** Clicking the 2-hour or 3-hour option sets `selectedDuration` to 120 or 180 minutes.
+- **What `render()` draws:** It rebuilds the route stop cards from the `routeStops` array, including each stop's English name, short description, and photo.
+- **The `if` inside the loop:** For the 2-hour route, it includes stops marked for the short route. For the 3-hour route, it includes every stop in the array.
+- **What else `render()` works out:** It updates the selected duration style, the route length note, and how many stop cards are displayed.
+
+**What changed:** I am extending the route preview from a short summary to a stop-by-stop guide for the visitor who may be lost.
+
+**Patching vs. rendering:** [Complete after building and comparing the new version.]
+
+**What was hard, and what I tried:** [Complete after working through the code.]
+
+**What happened when I tried to break it:** [Record actual start, normal-use, repeated-use, and consistency checks after testing.]
+
+**What I learned or changed my mind about:** [Complete after testing.]
+
+**Question for Joey:** [Add a question, or say “None this week.”]
+
+**Next week's goal:** [Choose after this week's work.]
+
+**AI use:** I used AI to help organize the route data, draft short English descriptions, and work through the `render()` loop. I reviewed the route choices, descriptions, and code and will practice explaining how the selected duration controls which stops appear.
+
 ### Week 8 — November 5, 2026
 
 **State Plan**
