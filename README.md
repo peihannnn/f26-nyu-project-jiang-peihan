@@ -17,21 +17,21 @@
 - **The `if` inside the loop:** For the 2-hour route, it includes stops marked for the short route. For the 3-hour route, it includes every stop in the array.
 - **What else `render()` works out:** It updates the selected duration style, the route length note, and how many stop cards are displayed.
 
-**What changed:** I am extending the route preview from a short summary to a stop-by-stop guide for the visitor who may be lost.
+**What changed:** I extended the route preview from a short summary to an ordered stop-by-stop guide with photos and short descriptions for the visitor who may be lost.
 
-**Patching vs. rendering:** [Complete after building and comparing the new version.]
+**Patching vs. rendering:** Before, the preview showed a route name and a short summary. Now the click handler only changes `selectedDuration` and calls `render()`, which clears the old cards and rebuilds the stop list from the array. The selected style, stop count, and time note all come from the same state.
 
-**What was hard, and what I tried:** [Complete after working through the code.]
+**What was hard, and what I tried:** The challenging part was keeping the 2-hour route focused while making the 3-hour route an extension of it. I used a `shortRoute` value on each stop so the loop can include the first six stops for 2 hours and all nine for 3 hours.
 
-**What happened when I tried to break it:** [Record actual start, normal-use, repeated-use, and consistency checks after testing.]
+**What happened when I tried to break it:** With AI assistance, I checked the initial state (2 hours and 6 cards), switched to 3 hours (9 cards), returned to planning, changed the language, and selected 2 hours ten times. The selected style, route note, and card list stayed in sync; the displayed counts matched the number of cards. I also checked the 3-hour page and confirmed that all nine photo cards loaded.
 
-**What I learned or changed my mind about:** [Complete after testing.]
+**What I learned or changed my mind about:** Clearing and rebuilding the list inside `render()` made repeated clicks predictable. The `if` inside the loop checks the current duration, so each stop is either included or skipped based on the visitor's choice.
 
-**Question for Joey:** [Add a question, or say “None this week.”]
+**Question for Joey:** Does the 2-hour route feel focused enough for a first-time visitor, or should one of the palace stops be replaced by another lake-area stop?
 
-**Next week's goal:** [Choose after this week's work.]
+**Next week's goal:** Ask a first-time visitor to try the route cards and note whether the stop names, order, and short descriptions help them feel less lost.
 
-**AI use:** I used AI to help organize the route data, draft short English descriptions, and work through the `render()` loop. I reviewed the route choices, descriptions, and code and will practice explaining how the selected duration controls which stops appear.
+**AI use:** I used AI to help organize the route data, draft short English descriptions, connect each stop to an official resort photo, implement the `render()` loop, and run browser checks. I chose the 2-hour and 3-hour route lengths and reviewed the route stops and descriptions. I will practice explaining how the state and the `if` inside the loop control which cards appear.
 
 ### Week 8 — November 5, 2026
 
@@ -86,7 +86,7 @@ Explore Chengde is a bilingual mobile guide prototype for Chengde Mountain Resor
 
 Chengde Mountain Resort is a historic cultural site in my hometown. Because Chengde is not a major international city, overseas visitors may have difficulty finding clear English information and navigating the large scenic area. I was inspired to create this project after seeing foreign visitors who appeared to be lost during my visit last year.
 
-Explore Chengde is an interactive English-first guide for first-time and international visitors. It helps a visitor choose a 60 or 90 minute visit, then previews how that choice could shape a clear route. The current project is a prototype; a future version could add a real map, detailed stops, accessibility information, and live route guidance.
+Explore Chengde is an interactive English-first guide for first-time and international visitors. It helps a visitor choose a 2-hour or 3-hour visit, then previews a clear route with photos and short descriptions for each stop. The current project is a prototype; a future version could add a real map, accessibility information, and live route guidance.
 
 ### Audience and goals
 
@@ -105,9 +105,33 @@ The goal is to make the site easier to explore while introducing its history, la
 
 - English and Chinese language switching
 - Welcome, visit-planning, and route-preview screens
-- 60 and 90 minute route choices
+- 2-hour and 3-hour route choices (2 hours selected by default)
 - A selected route duration carried into the preview screen
+- Six stop cards on the 2-hour route and nine on the 3-hour route
+- English names, short descriptions, and official resort photos for every route stop
 - Responsive mobile-first editorial design
+
+### Suggested route stops
+
+The 2-hour prototype route is: Lizheng Gate → Danbo Jingcheng Hall → Yanbo Zhishuang Hall → Wanhe Songfeng Hall → Yanxun Pavilion → Yanyu Tower.
+
+The 3-hour route includes those six stops, then adds: Jinshan Island → Rehe Spring → Wenjin Pavilion.
+
+These durations are estimates for this class prototype, not official walking-time guarantees. Actual time depends on walking pace, queues, and time spent at each place. See the [official resort route guide](https://www.bishushanzhuang.com.cn/index.php/Scenic/area_index/area_id/1.html) for route information before visiting.
+
+### Photo sources
+
+Each stop card uses a photo from the resort's official gallery and links to that gallery when selected. The images are hosted remotely and need an internet connection.
+
+- [Lizheng Gate](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/190.html)
+- [Danbo Jingcheng Hall](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/77.html)
+- [Yanbo Zhishuang Hall](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/85.html)
+- [Wanhe Songfeng Hall](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/87.html)
+- [Yanxun Pavilion](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/36.html)
+- [Yanyu Tower](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/73.html)
+- [Jinshan Island](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/39.html)
+- [Rehe Spring](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/40.html)
+- [Wenjin Pavilion](https://www.bishushanzhuang.com.cn/index.php/Scenic/pic_list/id/75.html)
 
 ## Mockup and responsive layout notes
 
@@ -129,20 +153,20 @@ The submitted Week 7 activity is available in [ACTIVITY_7_STRUCTURE_AUDIT.md](./
 
 ## Weekly update
 
-This week, I rebuilt the original React and TypeScript prototype in course-supported HTML, CSS, and vanilla JavaScript. I recreated the Welcome, Plan Your Visit, and Route Preview screens; added bilingual content and interactive 60 and 90 minute route choices; and made separate mobile and desktop layouts. I also tested the navigation and corrected a desktop image that became too large at some viewport sizes.
+This week, I used an array and `render()` to show a stop-by-stop route with photos and short descriptions. Visitors can choose a 2-hour route with six stops or a 3-hour route with nine stops. The route cards support the visitor story about helping first-time English-speaking visitors find their way around the resort.
 
-Next, I would like to develop real recommended stops, connect the route preview to a map, and test the guide with people who are unfamiliar with Chengde Mountain Resort.
+With AI assistance, I tested the default 2-hour state, switched to the 3-hour route, changed languages, navigated back, and selected the same duration ten times. The shown counts matched the cards, and all nine photo cards loaded. Next, I would like to ask a first-time visitor to try the route cards and tell me whether the stop order and descriptions are clear.
 
 ## How I used AI
 
-I used AI as a coding and learning assistant while translating the original prototype into HTML, CSS, and JavaScript. AI helped me explain the roles of the three technologies, troubleshoot responsive layout problems, and review the project against the assignment requirements. I selected the topic, defined the visitor problem, chose the visual direction and content, evaluated the results, and requested the final design changes. I reviewed the code and will be prepared to explain how the page navigation, route-duration selection, language switcher, CSS Grid, and media queries work.
+I used AI as a coding and learning assistant to help draft the 2-hour and 3-hour stop arrays, write short English descriptions, connect photos from the resort's official galleries, implement the loop and `if` in `render()`, and check the page in a browser. I chose the project topic and visitor problem, specified the two route lengths, reviewed the stops and descriptions, and checked the finished behavior. I will be prepared to explain how `selectedDuration`, the loop, and the `if` determine which cards appear.
 
 ## Project structure
 
 ```text
 index.html   Page structure and accessible content
 style.css    Layout, typography, responsive design, and visual styling
-script.js    Language switching, navigation, selections, and DOM updates
+script.js    Route data, language switching, navigation, and page rendering
 STRUCTURE_AUDIT.md  Semantic structure and accessibility review
 ACTIVITY_7_STRUCTURE_AUDIT.md  Week 7 inventory, audit, repairs, and triage
 images/      Project photography

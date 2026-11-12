@@ -816,3 +816,88 @@ button { font: inherit; }
   .duration-options button::before,
   .continue-button svg { transition: none; }
 }
+
+/* Route cards show details and images for each suggested stop. */
+.preparation-page { overflow-y: auto; }
+.route-results {
+  position: relative;
+  z-index: 5;
+  margin: 24px 7.5% 36px;
+}
+.route-results__heading { margin-bottom: 13px; }
+.route-results__heading > p:nth-child(2) {
+  margin: 9px 0 4px;
+  color: var(--navy);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.22rem;
+}
+.route-time-note,
+.route-count {
+  max-width: 650px;
+  margin: 0;
+  color: #55534e;
+  font-family: Arial, sans-serif;
+  font-size: .76rem;
+  line-height: 1.4;
+}
+.route-count { margin-top: 4px; color: var(--navy); font-weight: 700; }
+.route-stop-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.route-stop-card {
+  display: grid;
+  grid-template-columns: 106px minmax(0, 1fr);
+  gap: 12px;
+  min-height: 108px;
+  overflow: hidden;
+  border: 1px solid rgb(17 18 20 / 10%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 5px 18px rgb(22 31 35 / 6%);
+}
+.route-stop-card__photo-link { display: block; min-height: 108px; background: #ddd5c4; }
+.route-stop-card__photo { display: block; width: 100%; height: 100%; min-height: 108px; object-fit: cover; }
+.route-stop-card__copy { align-self: center; padding: 9px 11px 9px 0; }
+.route-stop-card__number {
+  margin: 0 0 4px;
+  color: #8b6722;
+  font-family: Arial, sans-serif;
+  font-size: .58rem;
+  letter-spacing: .12em;
+}
+.route-stop-card h3 { margin: 0 0 5px; color: #132f47; font-size: .96rem; font-weight: 400; line-height: 1.12; }
+.route-stop-card__description { margin: 0; color: #55534e; font-family: Arial, sans-serif; font-size: .69rem; line-height: 1.34; }
+.photo-credit { margin: 12px 0 0; color: #65615a; font-family: Arial, sans-serif; font-size: .64rem; line-height: 1.4; }
+.preparation-page--zh .route-results__heading > p:nth-child(2),
+.preparation-page--zh .route-stop-card h3 { font-family: 'Songti SC', SimSun, serif; }
+
+@media (min-width: 501px) {
+  .route-results { margin-top: 27px; }
+  .route-stop-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .route-stop-card { grid-template-columns: 124px minmax(0, 1fr); min-height: 132px; }
+  .route-stop-card__photo-link,
+  .route-stop-card__photo { min-height: 132px; }
+  .route-stop-card h3 { font-size: 1.08rem; }
+  .route-stop-card__description { font-size: .74rem; }
+}
+
+@media (min-width: 900px) {
+  .preparation-page { padding-bottom: 35px; }
+  .route-preview-heading { width: 66%; padding-top: 46px; }
+  .route-preview-heading h2 { font-size: clamp(3.8rem, 5vw, 5rem); }
+  .route-preview-heading > p:last-child { max-width: 620px; }
+  .route-photo { width: 34%; height: 350px; left: auto; opacity: .14; }
+  .route-results { margin: 24px 5.5% 44px; }
+  .route-stop-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .route-stop-card { grid-template-columns: 1fr; gap: 0; }
+  .route-stop-card__photo-link,
+  .route-stop-card__photo { height: 170px; min-height: 170px; }
+  .route-stop-card__copy { padding: 13px 15px 15px; }
+  .route-stop-card h3 { font-size: 1.17rem; }
+  .route-stop-card__description { font-size: .78rem; }
+}

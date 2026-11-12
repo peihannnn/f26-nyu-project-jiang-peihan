@@ -47,8 +47,8 @@
           <fieldset class="plan-fieldset duration-fieldset">
             <legend><span>01</span><span data-copy="plan.timeQuestion"></span></legend>
             <div class="duration-options" role="radiogroup">
-              <button type="button" role="radio" data-duration="60"><span class="duration-route-photo duration-route-photo--60" aria-hidden="true"></span><span class="duration-time"><strong>60</strong><span data-copy="plan.minute"></span></span><span class="duration-route-name" data-copy="plan.route60Name"></span><span class="duration-route-detail" data-copy="plan.route60Detail"></span></button>
-              <button type="button" role="radio" data-duration="90"><span class="duration-route-photo duration-route-photo--90" aria-hidden="true"></span><span class="duration-time"><strong>90</strong><span data-copy="plan.minute"></span></span><span class="duration-route-name" data-copy="plan.route90Name"></span><span class="duration-route-detail" data-copy="plan.route90Detail"></span></button>
+              <button type="button" role="radio" data-duration="120"><span class="duration-route-photo duration-route-photo--60" aria-hidden="true"></span><span class="duration-time"><strong>2</strong><span data-copy="plan.hour"></span></span><span class="duration-route-name" data-copy="plan.route2Name"></span><span class="duration-route-detail" data-copy="plan.route2Detail"></span></button>
+              <button type="button" role="radio" data-duration="180"><span class="duration-route-photo duration-route-photo--90" aria-hidden="true"></span><span class="duration-time"><strong>3</strong><span data-copy="plan.hour"></span></span><span class="duration-route-name" data-copy="plan.route3Name"></span><span class="duration-route-detail" data-copy="plan.route3Detail"></span></button>
             </div>
           </fieldset>
           <button class="continue-button" type="submit"><span data-copy="plan.continue"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
@@ -65,15 +65,16 @@
         </header>
         <div class="route-preview-heading"><p class="plan-eyebrow" data-copy="preparation.eyebrow"></p><h2 data-copy="preparation.title"></h2><p data-copy="preparation.description"></p></div>
         <div class="route-photo" role="img" data-photo></div>
-        <section class="route-flow" aria-labelledby="prototype-label"><p class="prototype-label" id="prototype-label" data-copy="preparation.prototype"></p><ol id="route-steps"></ol></section>
-        <aside class="preference-summary" id="preference-summary">
-          <p data-copy="preparation.preferences"></p>
-          <dl>
-            <div><dt data-copy="preparation.route"></dt><dd id="summary-route-name"></dd></div>
-            <div><dt data-copy="preparation.duration"></dt><dd id="summary-duration"></dd></div>
-          </dl>
-          <p class="summary-route-detail" id="summary-route-detail"></p>
-        </aside>
+        <section class="route-results" aria-labelledby="route-results-title">
+          <div class="route-results__heading">
+            <p class="prototype-label" data-copy="preparation.prototype"></p>
+            <p id="route-results-title" data-copy="preparation.routeTitle"></p>
+            <p id="route-time-note" class="route-time-note"></p>
+            <p id="route-count" class="route-count" aria-live="polite"></p>
+          </div>
+          <ol class="route-stop-list" id="route-stops"></ol>
+          <p class="photo-credit" data-copy="preparation.photoCredit"></p>
+        </section>
       </section>
     </main>
   </div>
