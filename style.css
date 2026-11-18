@@ -841,6 +841,32 @@ button { font: inherit; }
   line-height: 1.4;
 }
 .route-count { margin-top: 4px; color: var(--navy); font-weight: 700; }
+.route-search-label {
+  display: block;
+  margin: 17px 0 6px;
+  color: var(--navy);
+  font-family: Arial, sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+}
+.route-search {
+  display: block;
+  width: min(100%, 520px);
+  min-height: 44px;
+  margin: 0 0 14px;
+  padding: 10px 13px;
+  border: 1px solid rgb(17 18 20 / 22%);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 82%);
+  color: #171717;
+  font: 1rem Arial, sans-serif;
+}
+.route-search:focus-visible { outline: 3px solid #e7a51b; outline-offset: 2px; }
+.route-no-matches {
+  margin: 10px 0 16px;
+  color: #55534e;
+  font: .9rem/1.5 Arial, sans-serif;
+}
 .route-stop-list {
   display: grid;
   grid-template-columns: 1fr;

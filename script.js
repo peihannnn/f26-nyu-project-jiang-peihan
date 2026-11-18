@@ -151,6 +151,12 @@ function getCopy(path) {
   return path.split('.').reduce((value, key) => value[key], copy[state.language]);
 }
 
+// Does a stop's name or description contain the search text? Returns true or false.
+function matchesSearch(stop) {
+  const stopText = `${stop.name.en} ${stop.name.zh} ${stop.description.en} ${stop.description.zh}`.toLowerCase();
+  return stopText.includes(searchText.trim().toLowerCase());
+}
+
 // render: redraws the selected route stop cards and page controls from state
 function render() {
   const content = copy[state.language];
@@ -200,6 +206,7 @@ function render() {
 
   routeStops.forEach((stop) => {
     if (selectedDuration === 120 && !stop.shortRoute) return;
+    if (!matchesSearch(stop)) return;
 
     shown += 1;
     const item = document.createElement('li');
