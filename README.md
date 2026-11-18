@@ -15,14 +15,14 @@
 - **State:** `searchText` remembers the current search. It is new for Week 10 and starts as an empty string.
 - **My function:** `matchesSearch(stop)` answers whether a stop's name or description contains the search text. It takes one stop and returns `true` or `false`.
 
-**What changed:** Planned a live search for the route stop cards.
-**Why redraw on every event:** The input handler stores the latest text in `searchText` and calls `render()`. The page should be redrawn from that state so the cards and any no-results message stay in sync with what the visitor typed.
-**What was hard, and what I tried:**
-**What happened when I tried to break it:**
-**What I learned or changed my mind about:**
-**Question for Joey:**
-**Next week's goal:**
-**AI use:** AI helped me draft this plan and will help with the first version of the code. I will review the code, try the search myself, and record what I observe.
+**What changed:** Added a search field to the route preview. Its `input` event stores the typed text in `searchText` and calls `render()`. The `matchesSearch(stop)` function checks each stop's English and Chinese names and descriptions; `render()` uses its answer to decide which cards to show.
+**Why redraw on every event:** Each input event may change which stops match. Calling `render()` makes the cards, count, and no-results message reflect the latest `searchText` together.
+**What was hard, and what I tried:** I needed the search to work with the existing 2-hour and 3-hour routes, and with both interface languages. I kept the route-length check and search check in the existing render loop.
+**What happened when I tried to break it:** Not tested yet. I need to try a matching word, a word with no matches, clearing the search, and both route lengths, then record what actually happens.
+**What I learned or changed my mind about:** A function can answer one small question about a stop, and `render()` can use that answer while building the route list.
+**Question for Joey:** Is searching both the English and Chinese stop details useful for the first-time English-speaking visitor, or should this search stay English-only?
+**Next week's goal:** Ask a first-time visitor to try searching for a stop and tell me whether the result is easy to recognize.
+**AI use:** AI helped draft the plan and code the search input, event handler, matching function, and no-results message. I chose the feature based on the visitor who may be lost. I have not tested this version yet and will run the checks myself before submitting.
 
 ### Week 9 — November 12, 2026
 
