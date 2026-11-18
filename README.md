@@ -6,6 +6,24 @@
 
 ## Project Log
 
+### Week 10 — November 18, 2026
+
+**Event Plan**
+
+- **User story:** As a first-time visitor who is unfamiliar with Chengde Mountain Resort, I want to search for a stop by its name or description so that I can find the place I need without getting lost.
+- **The event:** The `input` event on the route search box fits because a visitor can type or erase words while looking for a place.
+- **State:** `searchText` remembers the current search. It is new for Week 10 and starts as an empty string.
+- **My function:** `matchesSearch(stop)` answers whether a stop's name or description contains the search text. It takes one stop and returns `true` or `false`.
+
+**What changed:** Planned a live search for the route stop cards.
+**Why redraw on every event:** The input handler stores the latest text in `searchText` and calls `render()`. The page should be redrawn from that state so the cards and any no-results message stay in sync with what the visitor typed.
+**What was hard, and what I tried:**
+**What happened when I tried to break it:**
+**What I learned or changed my mind about:**
+**Question for Joey:**
+**Next week's goal:**
+**AI use:** AI helped me draft this plan and will help with the first version of the code. I will review the code, try the search myself, and record what I observe.
+
 ### Week 9 — November 12, 2026
 
 **Render Plan**
