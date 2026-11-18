@@ -103,6 +103,8 @@ const copy = {
       timeQuestion: 'How much time do you have?', hour: 'hours',
       route2Name: 'Essential Highlights', route2Detail: 'A focused route through the palace and lake areas.',
       route3Name: 'Extended Discovery', route3Detail: 'Adds famous lake and plain-area landmarks.',
+      searchLabel: 'Search route stops', searchPlaceholder: 'Try a place name, like Lake or Hall',
+      noMatches: 'No stops match. Try another word or clear your search.',
       continue: 'Continue', back: 'Back to welcome',
     },
     preparation: {
@@ -124,6 +126,8 @@ const copy = {
       timeQuestion: '您有多少游览时间？', hour: '小时',
       route2Name: '精华路线', route2Detail: '精选宫殿区和湖区景点。',
       route3Name: '深度路线', route3Detail: '增加湖区和平原区的著名景点。',
+      searchLabel: '搜索路线景点', searchPlaceholder: '试试输入景点名称，例如“湖”或“殿”',
+      noMatches: '没有找到匹配的景点。请换个词，或清空搜索。',
       continue: '继续', back: '返回欢迎页',
     },
     preparation: {
@@ -180,6 +184,8 @@ function render() {
   document.querySelector('[data-go="welcome"]').setAttribute('aria-label', content.plan.back);
   document.querySelector('[data-go="plan"]').setAttribute('aria-label', content.preparation.back);
   document.querySelector('.duration-options').setAttribute('aria-label', content.plan.timeQuestion);
+  document.querySelector('.route-search-label').textContent = content.preparation.searchLabel;
+  document.querySelector('#route-search').placeholder = content.preparation.searchPlaceholder;
 
   document.querySelectorAll('[data-duration]').forEach((button) => {
     const selected = Number(button.dataset.duration) === selectedDuration;
@@ -232,6 +238,8 @@ function render() {
     ? `${content.preparation.count} ${shown} ${content.preparation.stops}`
     : `${content.preparation.count}${shown}${content.preparation.stops}`;
   routeList.setAttribute('aria-label', content.preparation.routeTitle);
+  document.querySelector('#route-no-matches').textContent = content.preparation.noMatches;
+  document.querySelector('#route-no-matches').hidden = shown !== 0;
 }
 
 document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => {
@@ -254,6 +262,10 @@ document.querySelector('#plan-form').addEventListener('submit', (event) => {
   event.preventDefault();
   state.page = 'preparation';
   render();
+});
+
+document.querySelector('#route-search').addEventListener('input', (event) => {
+  console.log(event.target.value);
 });
 
 render();
