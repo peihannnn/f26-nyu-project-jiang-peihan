@@ -145,6 +145,7 @@ const state = { language: 'en', page: 'welcome' };
 
 // selectedDuration: visitors need the route preview to remember whether they chose 2 or 3 hours
 let selectedDuration = 120;
+let searchText = '';
 
 function getCopy(path) {
   return path.split('.').reduce((value, key) => value[key], copy[state.language]);
@@ -265,7 +266,8 @@ document.querySelector('#plan-form').addEventListener('submit', (event) => {
 });
 
 document.querySelector('#route-search').addEventListener('input', (event) => {
-  console.log(event.target.value);
+  searchText = event.target.value;
+  render();
 });
 
 render();
